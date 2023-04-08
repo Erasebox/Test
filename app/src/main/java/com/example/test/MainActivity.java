@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         public int score = 0;
 
         public void Try(int i) {
-            score += 1;
+            score += i;
         }
     }
 }
