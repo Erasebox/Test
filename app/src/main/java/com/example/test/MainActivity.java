@@ -85,17 +85,22 @@ public class MainActivity extends AppCompatActivity {
 
         public int result(){
             int totalScore = 0;
-            for(int scoreIdx=0;scoreIdx<score.length;scoreIdx++){
-                totalScore+=score[scoreIdx];
-                if(scoreIdx<19) {
-                    if (isASpare(scoreIdx)) {
-                        totalScore += score[scoreIdx + 2];
-                    }
-                    if (isAStrike(scoreIdx)) {
-                        totalScore += score[scoreIdx + 1];
-                        totalScore += score[scoreIdx + 2];
-                    }
+            int currentFrameScoreIdx=0;
+            for(int currentFrame=0;currentFrame<10;currentFrame++){
+                totalScore+=score[currentFrameScoreIdx];
+                if (isAStrike(currentFrameScoreIdx)) {
+                    totalScore += score[currentFrameScoreIdx + 1];
+                    totalScore += score[currentFrameScoreIdx + 2];
                 }
+                else if(isASpare(currentFrameScoreIdx)){
+                    totalScore += score[currentFrameScoreIdx + 1];
+                    totalScore += score[currentFrameScoreIdx + 2];
+                    currentFrameScoreIdx++;
+                }else{
+                    totalScore += score[currentFrameScoreIdx + 1];
+                    currentFrameScoreIdx++;
+                }
+                currentFrameScoreIdx++;
             }
             return totalScore;
         }

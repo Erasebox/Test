@@ -48,6 +48,12 @@ public class HomeworkUnitTest {
         assertEquals(24,test.result());
     }
 
+    @Test
+    public void fullTestStrike() {
+        repeatedCheck(10, 12);
+        assertEquals(300,test.result());
+    }
+
     private void TryStrike() {
         test.Try(10);
     }
