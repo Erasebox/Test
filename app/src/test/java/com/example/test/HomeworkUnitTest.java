@@ -33,11 +33,28 @@ public class HomeworkUnitTest {
 
     @Test
     public void newTestSpare() {
-        test.Try(3);
-        test.Try(7);//throw a spare
+        TryASpare();
         test.Try(6);
         repeatedCheck(0, 17);
         assertEquals(22,test.result());
+    }
+
+    @Test
+    public void newTestStrike() {
+        TryStrike();
+        test.Try(3);
+        test.Try(4);
+        repeatedCheck(0, 16);
+        assertEquals(24,test.result());
+    }
+
+    private void TryStrike() {
+        test.Try(10);
+    }
+
+    private void TryASpare() {
+        test.Try(3);
+        test.Try(7);
     }
 
     private void repeatedCheck(int i, int times) {

@@ -88,12 +88,24 @@ public class MainActivity extends AppCompatActivity {
             for(int scoreIdx=0;scoreIdx<score.length;scoreIdx++){
                 totalScore+=score[scoreIdx];
                 if(scoreIdx<19) {
-                    if (10 == score[scoreIdx] + score[scoreIdx + 1]) {
+                    if (isASpare(scoreIdx)) {
+                        totalScore += score[scoreIdx + 2];
+                    }
+                    if (isAStrike(scoreIdx)) {
+                        totalScore += score[scoreIdx + 1];
                         totalScore += score[scoreIdx + 2];
                     }
                 }
             }
             return totalScore;
+        }
+
+        private boolean isASpare(int scoreIdx) {
+            return 10 == score[scoreIdx] + score[scoreIdx + 1];
+        }
+
+        private boolean isAStrike(int scoreIdx) {
+            return 10 == score[scoreIdx];
         }
     }
 }
