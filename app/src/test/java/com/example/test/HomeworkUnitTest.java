@@ -22,19 +22,30 @@ public class HomeworkUnitTest {
     @Test
     public void testScore() {
         repeatedCheck(0,20);
-        assertEquals(20, test.score);
+        assertEquals(0, test.result());
     }
 
+    @Test
     public void newTestScore() {
         repeatedCheck(1, 20);
-        assertEquals(20,test.score);
+        assertEquals(20,test.result());
+    }
+
+    @Test
+    public void newTestSpare() {
+        test.Try(3);
+        test.Try(7);//throw a spare
+        test.Try(6);
+        repeatedCheck(0, 17);
+        assertEquals(22,test.result());
     }
 
     private void repeatedCheck(int i, int times) {
-        for(int j=0;j<20;j++){
-            test.Try(1);
+        for(int j=0;j<times;j++){
+            test.Try(i);
         }
     }
+
 
 
 }

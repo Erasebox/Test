@@ -76,10 +76,24 @@ public class MainActivity extends AppCompatActivity {
 
     public static class MyTest {
 
-        public int score = 0;
+        int score[] = new int[21];
+        int currentScoreIndex = 0;
 
         public void Try(int i) {
-            score += i;
+            score[currentScoreIndex++] = i;
+        }
+
+        public int result(){
+            int totalScore = 0;
+            for(int scoreIdx=0;scoreIdx<score.length;scoreIdx++){
+                totalScore+=score[scoreIdx];
+                if(scoreIdx<19) {
+                    if (10 == score[scoreIdx] + score[scoreIdx + 1]) {
+                        totalScore += score[scoreIdx + 2];
+                    }
+                }
+            }
+            return totalScore;
         }
     }
 }
