@@ -28,7 +28,6 @@ public class FirstFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        TextView t;
         super.onViewCreated(view, savedInstanceState);
 
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
