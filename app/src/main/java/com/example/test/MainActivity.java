@@ -18,6 +18,7 @@ import com.example.test.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,6 +47,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        Button buttonGO = this.findViewById(R.id.button);
+        EditText editText = this.findViewById(R.id.editText);
+        TextView textView = this.findViewById(R.id.textView);
+        buttonGO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String scores = editText.getText().toString();
+                String[] array = scores.split("/,/");
+                MyTest test = new MyTest();
+                for(int i=0;i<array.length;i++){
+                    test.Try(Integer.parseInt(array[i]));
+                }
+                textView.setText("Total score is:" + test.score);
             }
         });
     }
