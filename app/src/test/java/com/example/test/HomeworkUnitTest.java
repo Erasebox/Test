@@ -22,7 +22,7 @@ public class HomeworkUnitTest {
     @Test
     public void testScore() {
         repeatedCheck(0,20);
-        assertEquals(0, test.result());
+        assertEquals(-10, test.result());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class HomeworkUnitTest {
         TryASpare();
         test.Try(6);
         repeatedCheck(0, 17);
-        assertEquals(22,test.result());
+        assertEquals(14,test.result());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class HomeworkUnitTest {
         test.Try(3);
         test.Try(4);
         repeatedCheck(0, 16);
-        assertEquals(24,test.result());
+        assertEquals(16,test.result());
     }
 
     @Test

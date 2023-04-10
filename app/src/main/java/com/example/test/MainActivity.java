@@ -97,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
                     totalScore += score[currentFrameScoreIdx + 1];
                     totalScore += score[currentFrameScoreIdx + 2];
                 }
+                else if(isAZero(currentFrameScoreIdx)){
+                    totalScore -= 1;
+                }
                 else if(isASpare(currentFrameScoreIdx)){
                     totalScore += score[currentFrameScoreIdx + 1];
                     totalScore += score[currentFrameScoreIdx + 2];
@@ -110,6 +113,10 @@ public class MainActivity extends AppCompatActivity {
             return totalScore;
         }
 
+        private boolean isAZero(int scoreIdx) {
+            return 0 == score[scoreIdx] && 0 == score[scoreIdx + 1];
+        }
+
         private boolean isASpare(int scoreIdx) {
             return 10 == score[scoreIdx] + score[scoreIdx + 1];
         }
@@ -117,5 +124,6 @@ public class MainActivity extends AppCompatActivity {
         private boolean isAStrike(int scoreIdx) {
             return 10 == score[scoreIdx];
         }
+
     }
 }
